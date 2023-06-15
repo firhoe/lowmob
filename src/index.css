@@ -1,4 +1,14 @@
+/* Globat Adjust */
+
 @import url(./utils/global-styles.css);
+
+/* Animations */
+
+@import url(./animations/wiggle.css);
+@import url(./animations/slide-in.css);
+@import url(./animations/slide-out.css);
+@import url(./animations/pulse.css);
+
 
 body {
   margin: 0;
@@ -10,7 +20,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   box-sizing: border-box;
-  background-color: #171717;
+  background-color: #EDEDED;
 }
 
 code {

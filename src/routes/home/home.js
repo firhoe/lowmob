@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Playlist from '../playlist/playlist';
-import Feed from '../feed/feed';
 import Player from '../player/player';
 import Favorites from '../favorites/favorites';
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -14,7 +13,6 @@ export default function Home() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Playlist />} />
-          <Route path="/feed" element={<Feed />} />
           <Route path="/player" element={<Player />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>

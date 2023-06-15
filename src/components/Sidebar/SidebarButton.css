@@ -1,0 +1,31 @@
+a {
+  text-decoration: none;
+}
+
+.sidebar__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar__title {
+  font-size: 12px;
+  color: #5f5f5f;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar__button.active .sidebar__title,
+.sidebar__button.active:hover .sidebar__title {
+  transition: opacity 0.4s ease;
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidebar__title.active {
+  animation: wiggle 2s infinite;
+}
