@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from './routes/home'
+import Home from '../../routes/home/home'
 
 export default function App() {
   return (
