@@ -8,6 +8,7 @@ import greenIcon from '../../images/green-icon.webp';
 import ballIcon from '../../images/ball.webp';
 import folderIcon from '../../images/folder.svg';
 
+
 export default function Sidebar() {
   return (
     <div className="sidebar">
