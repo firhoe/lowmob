@@ -22,7 +22,7 @@ export default function Sidebar() {
           />
         }
       />
-      <div>
+      <div className="sidebar__button-group">
         <SidebarButton
           title="Player"
           to="/player"

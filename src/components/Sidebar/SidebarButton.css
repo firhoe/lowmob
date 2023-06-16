@@ -2,12 +2,14 @@ a {
   text-decoration: none;
 }
 
+/*revisa este transition */
 .sidebar__button {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 20px;
+  transition: all 0.4s ease;
 }
 
 .sidebar__title {
@@ -16,16 +18,44 @@ a {
   text-align: center;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.2s ease;
 }
 
-.sidebar__button.active .sidebar__title,
-.sidebar__button.active:hover .sidebar__title {
-  transition: opacity 0.4s ease;
+.sidebar__button.active .sidebar__title {
   visibility: visible;
   opacity: 1;
 }
 
-.sidebar__title.active {
+.sidebar__button.active {
   animation: wiggle 2s infinite;
+}
+
+.sidebar__button.active:hover .sidebar__title {
+  transition: opacity 0.4s ease;
+}
+
+.sidebar__button.active:hover {
+  animation: none;
+}
+
+@media (max-width: 1023px) {
+  .sidebar__button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+ 
+  }
+
+  .sidebar__button {
+    padding: 10px;
+  }
+
+  .sidebar__title {
+    display: none;
+  }
+
+  .sidebar__button.active .sidebar__title {
+    display: none;
+  }
 }

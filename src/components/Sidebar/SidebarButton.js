@@ -10,9 +10,7 @@ export default function SidebarButton(props) {
     <Link to={props.to}>
       <div className={`sidebar__button ${isActive ? 'active' : ''}`}>
         {props.icon}
-        <p className={`sidebar__title ${isActive ? 'active' : ''}`}>
-          {props.title}
-        </p>
+        <p className="sidebar__title">{props.title}</p>
       </div>
     </Link>
   );

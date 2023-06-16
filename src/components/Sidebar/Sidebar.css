@@ -41,3 +41,37 @@
   width: 57px;
 }
 
+@media (max-width: 620px) {
+  .sidebar__icon-paper {
+    width: 50px; 
+  }
+
+  .sidebar__icon-green {
+    width: 50px; 
+  }
+
+  .sidebar__icon-ball {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar__icon-folder {
+    width: 45px; 
+  }
+
+  .sidebar__icon-skull {
+    width: 40px; 
+  }
+}
+
+@media (max-width: 1023px) {
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+  }
+}

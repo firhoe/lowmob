@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function Player() {
-  return (
-    <div>player</div>
-  )
+  return <div className="container">player</div>;
 }
