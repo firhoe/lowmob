@@ -9,7 +9,8 @@ import ballIcon from '../../images/ball.webp';
 import folderIcon from '../../images/folder.svg';
 
 
-export default function Sidebar() {
+export default function Sidebar( ) {
+
   return (
     <div className="sidebar">
       <SidebarButton
@@ -68,6 +69,7 @@ export default function Sidebar() {
             className="sidebar__icon sidebar__icon-skull"
           />
         }
+        logOut
       />
     </div>
   );

@@ -6,25 +6,26 @@ import Favorites from '../favorites/favorites';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Login from '../../routes/auth/login';
 import './home.css';
-import spotifyApi, { getTokenFromUrl } from '../../utils/auth';
+import {useStore} from '../../utils/store';
+import spotifyApi, {getTokenFromUrl} from '../../utils/auth';
 
 export default function Home() {
-  const [spotifyToken, setSpotifyToken] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
+  const {spotifyToken, setSpotifyToken, loggedIn, setLoggedIn} = useStore();
 
   useEffect(() => {
-    const spotifyToken = getTokenFromUrl().access_token;
+    const token = getTokenFromUrl().access_token;
     window.location.hash = '';
 
-    if (spotifyToken) {
-      setSpotifyToken(spotifyToken);
-      spotifyApi.setAccessToken(spotifyToken);
+    if (token) {
+      localStorage.setItem('spotifyToken', token);
+      setSpotifyToken(token);
+      spotifyApi.setAccessToken(token);
       spotifyApi.getMe().then((user) => {
         console.log(user);
       });
       setLoggedIn(true);
     }
-  }, []);
+  }, [setSpotifyToken, setLoggedIn]);
 
   return !loggedIn ? (
     <Login />
