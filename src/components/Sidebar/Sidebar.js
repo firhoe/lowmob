@@ -60,7 +60,6 @@ export default function Sidebar( ) {
         />
       </div>
       <SidebarButton
-        title="Logout"
         to=""
         icon={
           <img

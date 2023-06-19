@@ -2,5 +2,20 @@
   height: 100vh;
   width: 100vw;
   display: flex;
+  background: url(../../images/background.png) no-repeat center/1050px 640px;
+  background-size: auto;
 }
 
+@media (max-width: 1023px) {
+  .main {
+    background-size: 80%;
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 620px) {
+  .main {
+    background-size: 60%;
+    background-attachment: fixed;
+  }
+}

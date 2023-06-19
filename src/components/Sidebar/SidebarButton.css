@@ -8,7 +8,6 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 20px;
   transition: all 0.4s ease;
 }
 
@@ -44,7 +43,6 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
- 
   }
 
   .sidebar__button {

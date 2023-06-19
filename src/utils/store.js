@@ -15,5 +15,7 @@ export const useStore = create((set) => {
       localStorage.removeItem('spotifyToken');
       set({loggedIn: false, spotifyToken: ''});
     },
+    playlists: [],
+    setPlaylists: (playlists) => set({playlists: playlists}),
   };
 });
