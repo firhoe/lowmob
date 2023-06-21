@@ -1,23 +1,39 @@
 .sidebar {
   width: 100px;
-  height: calc(40% - 40px);
+  height: auto;
   margin: 20px;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
   align-self: center;
-  background: linear-gradient( 180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 53.02%, rgba(255, 255, 255, 0) 104.95% );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.25) 53.02%,
+    rgba(255, 255, 255, 0) 104.95%
+  );
   filter: drop-shadow(0px 7px 20px rgba(114, 114, 114, 0.25));
   backdrop-filter: blur(5px);
   border-radius: 10px;
+}
+
+.sidebar__button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .sidebar__icon {
   background: transparent no-repeat center/contain;
   border: none;
   cursor: url(../../images/cursor.png), auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .sidebar__icon:hover {
@@ -34,14 +50,11 @@
 }
 
 .sidebar__icon-ball {
-  width: 55px;  
-  height: 55px;
-  
+  width: 55px;
 }
 
 .sidebar__icon-folder {
-  width: 60px;  
-
+  width: 60px;
 }
 
 .sidebar__icon-skull {
@@ -53,43 +66,27 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    position: fixed;
     bottom: 0;
-    width: calc(100% - 40px);
+    width: auto;
     z-index: 1;
-    height: 100px;
+    height: auto;
   }
 
   .sidebar__icon-paper {
-    padding-top: 0; 
+    padding-top: 0;
   }
 }
 
-
 @media (max-width: 620px) {
   .sidebar {
-    height: 80px;
+    height: auto;
   }
 
   .sidebar__icon-paper {
-    width: 50px; 
     padding: 0;
   }
 
-  .sidebar__icon-green {
-    width: 50px; 
-  }
-
   .sidebar__icon-ball {
-    width: 40px;
-    height: 40px;
-  }
-
-  .sidebar__icon-folder {
-    width: 45px; 
-  }
-
-  .sidebar__icon-skull {
-    width: 40px; 
+    width: 50px;
   }
 }
