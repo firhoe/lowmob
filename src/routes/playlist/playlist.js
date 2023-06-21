@@ -1,19 +1,24 @@
 import React, {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
 import './playlist.css';
 import spotifyApi from '../../utils/auth';
 
 export default function Playlist() {
   const {spotifyToken, playlists, setPlaylists} = useStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
 
     spotifyApi.getUserPlaylists().then((playlists) => {
       setPlaylists(playlists.items);
-      console.log(playlists.items);
     });
   }, [spotifyToken, setPlaylists]);
+
+  const handlePlayPlaylist = (id) => {
+    navigate('/player', {state: {id: id}});
+  };
 
   return (
     <div className="container">
@@ -26,12 +31,15 @@ export default function Playlist() {
                 className="playlist__image"
                 alt="playlist-art"
               />
-              <button className="playlist__button">
-                <p className='playlist__button-text'>Play it</p>
-                <div className="playlist__button-icon"></div>
+              <button
+                className="playlist__button"
+                key={playlist.id}
+                onClick={() => handlePlayPlaylist(playlist.id)}>
               </button>
-              <p className='playlist__title'>{playlist.name}</p>
-              <p className='playlist__subtitle'>{playlist.tracks.total} Songs</p>
+              <p className="playlist__title">{playlist.name}</p>
+              <p className="playlist__subtitle">
+                {playlist.tracks.total} Songs
+              </p>
             </div>
           );
         })}
