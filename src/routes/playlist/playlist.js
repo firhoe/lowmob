@@ -34,8 +34,7 @@ export default function Playlist() {
               <button
                 className="playlist__button"
                 key={playlist.id}
-                onClick={() => handlePlayPlaylist(playlist.id)}>
-              </button>
+                onClick={() => handlePlayPlaylist(playlist.id)}></button>
               <p className="playlist__title">{playlist.name}</p>
               <p className="playlist__subtitle">
                 {playlist.tracks.total} Songs

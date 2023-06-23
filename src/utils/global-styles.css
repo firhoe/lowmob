@@ -4,6 +4,13 @@
   background: url(../images/header-text.svg) no-repeat right 50% top 5%/550px 80px;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 @media (max-width: 1023px) {
   .container {
     background-size: 80%;

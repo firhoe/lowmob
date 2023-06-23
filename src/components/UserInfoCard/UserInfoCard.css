@@ -1,0 +1,30 @@
+.user__container {
+  background-color: #ff98f3;
+  border-radius: 10px;
+  width: 350px;
+  height: 150px;
+}
+
+.user__card {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.user__name {
+  margin: 0;
+}
+
+.user__image {
+    width: 70px;
+    margin: 0 0 0 15px;
+}
+
+/* .user__animation {
+  background: url(../../images/moving-dot-black.svg) no-repeat center/cover;
+  width: 97px;
+  height: 100px;
+} */
+
+.user__followers {
+  display: inline-block;
+}
