@@ -6,7 +6,7 @@ export const scopes = [
   'user-read-recently-played',
   'user-read-playback-state',
   'user-top-read',
-  // 'user-library-read',
-  // 'playlist-read-private',
+  'user-library-read',
+  'playlist-read-private',
 ];
 

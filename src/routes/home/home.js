@@ -40,5 +40,5 @@ export default function Home() {
         </Routes>
       </div>
     </Router>
-  );
+  ); 
 }

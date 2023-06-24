@@ -1,8 +1,12 @@
 .user__container {
-  background-color: #ff98f3;
+  background-color: #000;
   border-radius: 10px;
   width: 350px;
   height: 150px;
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  margin-bottom: 30px;
 }
 
 .user__card {
@@ -10,21 +14,38 @@
   border-radius: 20px;
 }
 
+.user__profile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .user__name {
-  margin: 0;
+  margin: 0 0 0 20px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .user__image {
-    width: 70px;
-    margin: 0 0 0 15px;
+  width: 70px;
+  margin: 0 0 0 15px;
 }
-
-/* .user__animation {
-  background: url(../../images/moving-dot-black.svg) no-repeat center/cover;
-  width: 97px;
-  height: 100px;
-} */
 
 .user__followers {
-  display: inline-block;
+  font-size: 16px;
+  font-weight: 200;
+  font-style: normal;
+  margin: 0;
 }
+
+.user__animation {
+  background: url(../../images/moving-dot-black.svg) no-repeat center/cover;
+  width: 107px;
+  height: 110px;
+  animation: rotation 14s infinite;
+  margin-right: 20px;
+  filter: invert(3);
+}
+
+
