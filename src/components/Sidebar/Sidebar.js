@@ -37,12 +37,12 @@ export default function Sidebar( ) {
           }
         />
         <SidebarButton
-          title="Favorites"
-          to="/favorites"
+          title="Artists"
+          to="/artists"
           icon={
             <img
               src={ballIcon}
-              alt="favorites"
+              alt="artists"
               className="sidebar__icon sidebar__icon-ball"
             />
           }

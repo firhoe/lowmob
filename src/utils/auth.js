@@ -16,10 +16,6 @@ export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${re
   '%20'
 )}&response_type=token&show_dialog=true`;
 
-const spotifyApi = new SpotifyWebApi();
-
-export const setClientToken = (token) => {
-  spotifyApi.setAccessToken(token);
-}
+export const spotifyApi = new SpotifyWebApi();
 
 export default spotifyApi;

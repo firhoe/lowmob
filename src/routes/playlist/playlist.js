@@ -22,13 +22,13 @@ export default function Playlist() {
   };
 
   return (
-    <div className="container">
+    <div className="container flex">
       <div className="playlist__container">
         {playlists.map((playlist) => {
           return (
             <div className="playlist__card" key={playlist.id}>
               <img
-                src={playlist.images[0].url}
+                src={playlist?.images[0]?.url}
                 className="playlist__image"
                 alt="playlist-art"
               />
