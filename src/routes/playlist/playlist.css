@@ -90,6 +90,26 @@
   margin-right: 15px;
 }
 
+@media (max-width: 1440px) {
+  .playlist__container{
+    width: 60vw;
+    height: 75vh;
+  }
+
+  .playlist__image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .playlist__title {
+    font-size: 20px;
+  }
+
+  .playlist__subtitle {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 1023px) {
   .playlist__container {
     position: fixed;

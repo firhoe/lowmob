@@ -4,6 +4,7 @@
   display: flex;
   background: url(../../images/background.png) no-repeat center/1050px 640px;
   background-size: auto;
+  overflow: auto;
 }
 
 @media (max-width: 1023px) {
