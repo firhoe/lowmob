@@ -24,13 +24,11 @@ export default function UserInfoCard() {
   return (
     <div className="user__container">
       <div className="user__card">
-        <div className="user__profile">
           <h2 className="user__name">
             Hello, {user.name}!
             <p className="user__followers">{user.followers} followers</p>
           </h2>
           <div className="user__animation"></div>
-        </div>
       </div>
     </div>
   );

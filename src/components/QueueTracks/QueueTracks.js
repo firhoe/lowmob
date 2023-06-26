@@ -3,7 +3,7 @@ import {useStore} from '../../utils/store';
 import './QueueTracks.css';
 
 export default function QueueTracks() {
-  const {tracks, currentTrack} = useStore();
+  const {tracks, currentIndex, setCurrentIndex} = useStore();
 
   const msToMinutesAndSeconds = (ms) => {
     const minutes = Math.floor(ms / 60000);
@@ -15,29 +15,32 @@ export default function QueueTracks() {
     <div className="queue__container">
       <div className="queue__header">
         <img
-          src={tracks[0]?.album?.images[0]?.url}
+          src={tracks[currentIndex]?.album?.images[0]?.url}
           className="queue__image"
           alt="playlist-cover"
         />
         <div className="queue__info">
-          <h2 className="queue__current-song">{currentTrack?.name}</h2>
+          <h2 className="queue__current-song">{tracks[currentIndex]?.name}</h2>
           <p className="queue__current-artist">
-            Artist: {currentTrack?.artists[0]?.name}
+            Artist: {tracks[currentIndex]?.artists[0]?.name}
           </p>
           <p className="queue__current-release">
-            Release date: {currentTrack?.album?.release_date}
+            Release date: {tracks[currentIndex]?.album?.release_date}
           </p>
         </div>
       </div>
       <div className="queue__playlist">
-        <div className="queue__list">
+        <div className="queue__list-header">
           <p className="queue__item-song"># Título</p>
           <p className="queue__item-artist">Artista</p>
           <p className="queue__item-album">Álbum</p>
           <p className="queue__item-duration queue__icon"></p>
         </div>
-        {tracks.map((track) => (
-          <div className="queue__list" key={track.id}>
+        {tracks.map((track, index) => (
+          <div
+            className="queue__list"
+            key={track.id}
+            onClick={() => setCurrentIndex(index)}>
             <p className="queue__item-song">{track.name}</p>
             <p className="queue__item-artist">{track.artists[0]?.name}</p>
             <p className="queue__item-album">{track.album?.name}</p>

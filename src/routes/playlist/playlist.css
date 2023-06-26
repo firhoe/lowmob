@@ -3,7 +3,8 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-gap: 30px 30px;
   width: 70vw;
-  margin: 0 auto;
+  max-height: 80vh;
+  margin: 60px auto 0;
   position: relative;
 }
 

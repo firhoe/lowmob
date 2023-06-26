@@ -10,7 +10,7 @@ export default function Playlist() {
 
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
-    console.log(spotifyToken);
+    //console.log(spotifyToken);
 
     spotifyApi.getUserPlaylists().then((playlists) => {
       setPlaylists(playlists.items);
