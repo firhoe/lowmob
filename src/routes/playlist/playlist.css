@@ -24,6 +24,7 @@
   justify-content: space-between;
   width: 100%;
   transition: all 0.3s ease;
+  cursor: grab;
 }
 
 .playlist__card:hover {
@@ -58,15 +59,18 @@
   overflow: hidden;
   border-radius: 50%;
   transition: all 0.3s ease;
+  
 }
 
 .playlist__button:hover {
   transform: scale(1.1);
+  cursor: crosshair;
 }
 
 .playlist__button:hover:before {
   top: -40px;
   opacity: 1;
+  
 }
 
 .playlist__title {

@@ -8,5 +8,6 @@
 @media (max-width: 768px) {
   .player__container {
     width: 90vw;
+    height: 90vh;
   }
 }

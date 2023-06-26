@@ -45,7 +45,7 @@
 }
 
 .queue__info {
-  width: 70%;
+  width: 80%;
 }
 
 .queue__playlist {
@@ -137,6 +137,13 @@
   backdrop-filter: blur(5px);
 }
 
+@media (max-width: 1440px) {
+  .queue__info {
+    width: 60%;
+  }
+}
+
+
 @media (max-width: 1023px) {
   .queue__header {
     flex-direction: column;
@@ -177,5 +184,47 @@
 @media (max-width: 768px) {
   .queue__container {
     width: 90vw;
+  }
+}
+
+@media (max-width: 620px) {
+  .queue__image {
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+  }
+
+  .queue__info {
+    margin-left: 15px;
+  }
+
+  .queue__current-song {
+    font-size: 20px;
+  }
+
+  .queue__current-artist {
+    font-size: 12px;
+  }
+
+  .queue__current-release {
+    font-size: 12px;
+  }
+
+  .queue__playlist {
+    margin: 15px;
+  }
+
+  .queue__item-song {
+    font-size: 12px;
+    width: 75%;
+  }
+
+  .queue__item-duration {
+    font-size: 12px;
+  }
+
+  .queue__icon {
+    background-size: auto;
+    height: 11px;
   }
 }
