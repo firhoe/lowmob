@@ -5,6 +5,7 @@ import {useStore} from '../../utils/store';
 import spotifyApi from '../../utils/auth';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
 import QueueTracks from '../../components/QueueTracks/QueueTracks';
+import AudioPlayer from '../../components/AudioPlayer/AudioPlayer';
 import './player.css';
 
 export default function Player() {
@@ -38,6 +39,7 @@ export default function Player() {
       <div className="player__container">
         <UserInfoCard />
         <QueueTracks />
+        <AudioPlayer />
       </div>
       <div className="player__widgets"></div>
     </div>
