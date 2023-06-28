@@ -59,7 +59,6 @@
   overflow: hidden;
   border-radius: 50%;
   transition: all 0.3s ease;
-  
 }
 
 .playlist__button:hover {
@@ -70,7 +69,6 @@
 .playlist__button:hover:before {
   top: -40px;
   opacity: 1;
-  
 }
 
 .playlist__title {
@@ -91,9 +89,13 @@
 }
 
 @media (max-width: 1440px) {
-  .playlist__container{
+  .playlist__container {
     width: 60vw;
     height: 75vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(137, 137, 137, 0.4) rgba(136, 136, 136, 0.1);
   }
 
   .playlist__image {
@@ -112,20 +114,11 @@
 
 @media (max-width: 1023px) {
   .playlist__container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-gap: 30px 30px;
     width: 90%;
     max-height: 80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-top: 60px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(137, 137, 137, 0.4) rgba(136, 136, 136, 0.1);
   }
 
   .playlist__container::-webkit-scrollbar {

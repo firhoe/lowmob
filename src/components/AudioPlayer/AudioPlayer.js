@@ -10,8 +10,17 @@ export default function AudioPlayer() {
   return (
     <div className="audioPlayer__container">
       <div className="audioPlayer__songInfo">
-        <p className="audioPlayer__song">{currentTrack?.name}</p>
-        <p className="audioPlayer__artist">{currentTrack?.artists[0]?.name}</p>
+        <img
+          src={currentTrack?.album?.images[0]?.url}
+          alt="Album Cover"
+          className="audioPlayer__album"
+        />
+        <div className='audioPlayer__songDetails'>
+          <p className="audioPlayer__song">{currentTrack?.name}</p>
+          <p className="audioPlayer__artist">
+            {currentTrack?.artists[0]?.name}
+          </p>
+        </div>
       </div>
       <Controls />
       <ProgressBar />

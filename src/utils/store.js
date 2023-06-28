@@ -33,13 +33,19 @@ export const useStore = create((set) => {
     },
 
     // Función para establecer los datos del usuario
-    setUser: (userData) => set(() => ({ user: userData })),
+    setUser: (userData) => set(() => ({user: userData})),
 
     // Estado para almacenar las playlists del usuario
     playlists: [],
 
     // Función para establecer el estado de las playlists
     setPlaylists: (playlists) => set({playlists: playlists}),
+
+    // Estado para almacenar la playlist aleatoria
+    randomPlaylist: null,
+
+    // Función para establecer la playlist aleatoria
+    setRandomPlaylist: (playlist) => set({randomPlaylist: playlist}),
 
     // Estado para almacenar las canciones de una playlist
     tracks: [],

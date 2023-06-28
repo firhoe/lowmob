@@ -9,7 +9,8 @@ import AudioPlayer from '../../components/AudioPlayer/AudioPlayer';
 import './player.css';
 
 export default function Player() {
-  const {spotifyToken, setSpotifyToken, setTracks, setCurrentTrack,} = useStore();
+  const {spotifyToken, setSpotifyToken, setTracks, setCurrentTrack, playlists} =
+    useStore();
   const location = useLocation();
 
   useEffect(() => {
@@ -31,8 +32,16 @@ export default function Player() {
         setTracks(tracks);
         setCurrentTrack(tracks[0]);
       });
+    } else if (spotifyToken && playlists.length > 0) {
+      const firstPlaylistId = playlists[0].id;
+
+      spotifyApi.getPlaylistTracks(firstPlaylistId).then((response) => {
+        const tracks = response.items.map((item) => item.track);
+        setTracks(tracks);
+        setCurrentTrack(tracks[0]);
+      });
     }
-  }, [spotifyToken, location.state, setTracks, setCurrentTrack]);
+  }, [spotifyToken, location.state, setTracks, setCurrentTrack, playlists]);
 
   return (
     <div className="container flex">

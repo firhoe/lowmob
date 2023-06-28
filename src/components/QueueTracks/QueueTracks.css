@@ -17,12 +17,12 @@
 }
 
 .queue__header {
-  position: sticky;
-  top: 0;
   display: flex;
   align-items: center;
+  /*position: sticky;
+  top: 0;
   z-index: 1;
-  background-image: linear-gradient(to top, transparent, rgb(226, 226, 226));
+  background-image: linear-gradient(to top, transparent, rgb(226, 226, 226));*/
 }
 
 .queue__image {

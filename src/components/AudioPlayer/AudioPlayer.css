@@ -1,3 +1,26 @@
 .audioPlayer__container {
-    color: white;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.audioPlayer__songInfo {
+  display: flex;
+  width: 40%;
+  align-items: center;
+}
+
+.audioPlayer__album {
+  width: 60px;
+  height: 60px;
+  margin: 0 15px;
+}
+.audioPlayer__song {
+    margin: 0 0 5px 0;
+}
+
+.audioPlayer__artist {
+    margin: 0;
+    font-size: 12px;
+    color: #b3b3b3;
 }

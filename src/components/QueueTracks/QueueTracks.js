@@ -3,12 +3,17 @@ import {useStore} from '../../utils/store';
 import './QueueTracks.css';
 
 export default function QueueTracks() {
-  const {tracks, currentIndex, setCurrentIndex} = useStore();
+  const {tracks, setCurrentTrack, currentIndex, setCurrentIndex} = useStore();
 
   const msToMinutesAndSeconds = (ms) => {
     const minutes = Math.floor(ms / 60000);
     const seconds = ((ms % 60000) / 1000).toFixed(0);
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+  };
+
+  const handleTrackClick = (index) => {
+    setCurrentIndex(index);
+    setCurrentTrack(tracks[index]);
   };
 
   return (
@@ -40,7 +45,7 @@ export default function QueueTracks() {
           <div
             className="queue__list"
             key={track.id}
-            onClick={() => setCurrentIndex(index)}>
+            onClick={() => handleTrackClick(index)}>
             <p className="queue__item-song">{track.name}</p>
             <p className="queue__item-artist">{track.artists[0]?.name}</p>
             <p className="queue__item-album">{track.album?.name}</p>
