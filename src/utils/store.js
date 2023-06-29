@@ -41,12 +41,6 @@ export const useStore = create((set) => {
     // Función para establecer el estado de las playlists
     setPlaylists: (playlists) => set({playlists: playlists}),
 
-    // Estado para almacenar la playlist aleatoria
-    randomPlaylist: null,
-
-    // Función para establecer la playlist aleatoria
-    setRandomPlaylist: (playlist) => set({randomPlaylist: playlist}),
-
     // Estado para almacenar las canciones de una playlist
     tracks: [],
 
@@ -64,5 +58,23 @@ export const useStore = create((set) => {
 
     // Función para establecer el índice actual de la pista
     setCurrentIndex: (index) => set({currentIndex: index}),
+
+    // Estado para indicar si la música se está reproduciendo
+    isPlaying: false,
+
+    // Función para establecer el estado de reproducción
+    setIsPlaying: (playing) => set({isPlaying: playing}),
+
+    // Estado para almacenar el progreso de la pista actual
+    trackProgress: 0,
+
+    // Función para establecer el progreso de la pista
+    setTrackProgress: (progress) => set({trackProgress: progress}),
+
+    // Estado para almacenar la duración de la pista actual
+    duration: 0,
+
+    // Función para establecer la duración de la pista
+    setDuration: (duration) => set({duration}),
   };
 });

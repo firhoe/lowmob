@@ -1,5 +1,4 @@
-import React from 'react';
-import {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
 import {useStore} from '../../utils/store';
 import spotifyApi from '../../utils/auth';
@@ -24,24 +23,29 @@ export default function Player() {
 
 
   useEffect(() => {
-    if (spotifyToken && location.state) {
-      const playlistId = location.state.id;
+    const fetchData = async () => {
+      if (spotifyToken) {
+        const storedPlaylistId = localStorage.getItem('selectedPlaylistId');
+        let playlistId = storedPlaylistId;
 
-      spotifyApi.getPlaylistTracks(playlistId).then((response) => {
+        if (location.state && location.state.id) {
+          playlistId = location.state.id;
+          localStorage.setItem('selectedPlaylistId', playlistId);
+        } else if (!storedPlaylistId && playlists.length > 0) {
+          playlistId = playlists[0].id;
+          localStorage.setItem('selectedPlaylistId', playlistId);
+        }
+
+        const response = await spotifyApi.getPlaylistTracks(playlistId);
         const tracks = response.items.map((item) => item.track);
         setTracks(tracks);
         setCurrentTrack(tracks[0]);
-      });
-    } else if (spotifyToken && playlists.length > 0) {
-      const firstPlaylistId = playlists[0].id;
+      }
+    };
 
-      spotifyApi.getPlaylistTracks(firstPlaylistId).then((response) => {
-        const tracks = response.items.map((item) => item.track);
-        setTracks(tracks);
-        setCurrentTrack(tracks[0]);
-      });
-    }
-  }, [spotifyToken, location.state, setTracks, setCurrentTrack, playlists]);
+    fetchData();
+  }, [spotifyToken, location.state, playlists, setTracks, setCurrentTrack]);
+
 
   return (
     <div className="container flex">
@@ -50,7 +54,6 @@ export default function Player() {
         <QueueTracks />
         <AudioPlayer />
       </div>
-      <div className="player__widgets"></div>
     </div>
   );
 }

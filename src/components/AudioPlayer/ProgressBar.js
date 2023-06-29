@@ -1,8 +1,22 @@
 import React from 'react'
+import { useStore } from '../../utils/store'
 import './ProgressBar.css'
 
-export default function ProgressBar() {
+export default function ProgressBar({percentage}) {
+  const {currentTrack, trackProgress} = useStore();
+
+  const calculateProgress = () => {
+    if (currentTrack && currentTrack.duration) {
+      return (trackProgress / currentTrack.duration) * 100;
+    }
+    return 0;
+  };
+
   return (
-    <div></div>
-  )
+    <div className="progress__container">
+      <div
+        className="progress__fill"
+        style={{width: `${calculateProgress()}%`}}></div>
+    </div>
+  );
 }
