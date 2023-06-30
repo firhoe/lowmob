@@ -26,16 +26,16 @@ export default function Playlist() {
       <div className="playlist__container">
         {playlists.map((playlist) => {
           return (
-            <div className="playlist__card" key={playlist.id}>
+            <div
+              className="playlist__card"
+              key={playlist.id}
+              onClick={() => handlePlayPlaylist(playlist.id)}>
               <img
                 src={playlist?.images[0]?.url}
                 className="playlist__image"
                 alt="playlist-art"
               />
-              <button
-                className="playlist__button"
-                key={playlist.id}
-                onClick={() => handlePlayPlaylist(playlist.id)}></button>
+              <button className="playlist__button"></button>
               <p className="playlist__title">{playlist.name}</p>
               <p className="playlist__subtitle">
                 {playlist.tracks.total} Songs

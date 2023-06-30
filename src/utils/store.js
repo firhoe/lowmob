@@ -70,11 +70,5 @@ export const useStore = create((set) => {
 
     // Función para establecer el progreso de la pista
     setTrackProgress: (progress) => set({trackProgress: progress}),
-
-    // Estado para almacenar la duración de la pista actual
-    duration: 0,
-
-    // Función para establecer la duración de la pista
-    setDuration: (duration) => set({duration}),
   };
 });
