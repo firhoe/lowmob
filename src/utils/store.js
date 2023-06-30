@@ -70,5 +70,11 @@ export const useStore = create((set) => {
 
     // Función para establecer el progreso de la pista
     setTrackProgress: (progress) => set({trackProgress: progress}),
+
+    // Estado que indica si el reproductor está activo o no
+    isPlayerActive: true,
+
+    // Función para actualizar el estado de isPlayerActive.
+    setIsPlayerActive: (isActive) => set({isPlayerActive: isActive}),
   };
 });

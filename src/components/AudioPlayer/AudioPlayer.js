@@ -12,15 +12,15 @@ export default function AudioPlayer() {
     currentIndex,
     setCurrentIndex,
     isPlaying,
-    setIsPlaying,
+    //setIsPlaying,
     trackProgress,
     setTrackProgress,
   } = useStore();
 
-  const audioRef = useRef(new Audio(tracks[0]?.preview_url));
+  const audioRef = useRef(null); 
   const audioSrc = tracks[currentIndex]?.preview_url;
   const isLoaded = useRef(false);
-  const intervalRef = useRef();
+  const intervalRef = useRef(null); 
 
   const handleNextSong = useCallback(() => {
     if (isLoaded.current && currentIndex < tracks.length - 1) {
@@ -56,33 +56,14 @@ export default function AudioPlayer() {
   }, [audioRef, handleNextSong, setTrackProgress]);
 
   useEffect(() => {
-    try {
-      if (audioRef.current.src) {
-        if (isPlaying) {
-          audioRef.current.play();
-          trackProgressUpdater();
-        } else {
-          clearInterval(intervalRef.current);
-          audioRef.current.pause();
-        }
-      } else {
-        if (isPlaying) {
-          audioRef.current = new Audio(audioSrc);
-          trackProgressUpdater();
-        } else {
-          clearInterval(intervalRef.current);
-          audioRef.current.pause();
-        }
-      }
-    } catch (e) {
-      console.error('Error playing/pausing audio:', e);
+    if (!audioRef.current) {
+      
+      audioRef.current = new Audio();
     }
-  }, [isPlaying, audioSrc, trackProgressUpdater]);
 
-  useEffect(() => {
     try {
       audioRef.current.pause();
-      audioRef.current = new Audio(audioSrc);
+      audioRef.current.src = audioSrc; 
 
       setTrackProgress(audioRef.current.currentTime);
 
@@ -92,7 +73,6 @@ export default function AudioPlayer() {
           audioRef.current.play().catch((error) => {
             console.error('Error playing audio:', error);
           });
-          setIsPlaying(true);
           trackProgressUpdater();
         }
       };
@@ -105,28 +85,43 @@ export default function AudioPlayer() {
     }
   }, [
     currentIndex,
-    currentTrack,
     audioSrc,
-    trackProgressUpdater,
-    isPlaying,
-    setIsPlaying,
     setTrackProgress,
+    isPlaying,
+    trackProgressUpdater,
   ]);
 
   useEffect(() => {
-    try {
-      const track = tracks[currentIndex];
-      setCurrentTrack(track);
-    } catch (e) {
-      console.error('Error setting current track:', e);
+    if (audioRef.current) {
+      try {
+        if (isPlaying) {
+          if (audioRef.current.paused) {
+            audioRef.current.play();
+            trackProgressUpdater();
+          }
+        } else {
+          clearInterval(intervalRef.current);
+          audioRef.current.pause();
+        }
+      } catch (e) {
+        console.error('Error playing/pausing audio:', e);
+      }
     }
+  }, [isPlaying, trackProgressUpdater]);
+
+  useEffect(() => {
+    const track = tracks[currentIndex];
+    setCurrentTrack(track);
   }, [currentIndex, setCurrentTrack, tracks]);
 
   useEffect(() => {
     return () => {
       try {
-        audioRef.current.pause();
-        clearInterval(intervalRef.current);
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current = null;
+          clearInterval(intervalRef.current);
+        }
       } catch (e) {
         console.error('Error cleaning up audio:', e);
       }
