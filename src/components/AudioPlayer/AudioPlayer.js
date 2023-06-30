@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from 'react';
-import ProgressBar from './ProgressBar.js';
-import Controls from './Controls.js';
+import React, {useEffect, useRef, useCallback} from 'react';
+import ProgressBar from './ProgressBar';
+import Controls from './Controls';
 import {useStore} from '../../utils/store';
 import './AudioPlayer.css';
 
@@ -8,25 +8,38 @@ export default function AudioPlayer() {
   const {
     tracks,
     currentTrack,
+    setCurrentTrack,
     currentIndex,
     setCurrentIndex,
     isPlaying,
     setIsPlaying,
-    trackProgress,
+    //trackProgress,
     setTrackProgress,
   } = useStore();
 
-  const audioRef = useRef(new Audio(tracks[0]?.track.preview_url || ''));
-  const audioSrc = tracks[currentIndex]?.track?.preview_url || '';
+  const audioRef = useRef(new Audio(tracks[0]?.preview_url));
+  const audioSrc = tracks[currentIndex]?.preview_url;
   const isReady = useRef(false);
   const intervalRef = useRef();
 
-  const {duration} = audioRef.current;
-  const currentPercentage = duration ? (trackProgress / duration) * 100 : 0;
 
-  const trackProgressUpdater = () => {
+  //const {duration} = audioRef.current;
+  //const currentPercentage = duration ? (trackProgress / duration) * 100 : 0;
+
+  const handleNextSong = useCallback(() => {
+    if (currentIndex < tracks.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else setCurrentIndex(0);
+  }, [currentIndex, setCurrentIndex, tracks]);
+
+  const handlePreviousSong = useCallback(() => {
+    if (currentIndex - 1 < 0) setCurrentIndex(tracks.length - 1);
+    else setCurrentIndex(currentIndex - 1);
+  }, [currentIndex, setCurrentIndex, tracks]);
+
+  const trackProgressUpdater = useCallback(() => {
     clearInterval(intervalRef.current);
-    
+
     intervalRef.current = setInterval(() => {
       if (audioRef.current.ended) {
         handleNextSong();
@@ -34,7 +47,7 @@ export default function AudioPlayer() {
         setTrackProgress(audioRef.current.currentTime);
       }
     }, [1000]);
-  }
+  }, [audioRef, handleNextSong, setTrackProgress]);
 
   useEffect(() => {
     if (audioRef.current.src) {
@@ -55,7 +68,7 @@ export default function AudioPlayer() {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying, audioSrc]);
+  }, [isPlaying, audioSrc, trackProgressUpdater]);
 
   useEffect(() => {
     audioRef.current.pause();
@@ -70,27 +83,27 @@ export default function AudioPlayer() {
     } else {
       isReady.current = true;
     }
-  }, [currentIndex, currentTrack, audioSrc]);
+  }, [
+    currentIndex,
+    currentTrack,
+    audioSrc,
+    trackProgressUpdater,
+    setIsPlaying,
+    setTrackProgress,
+  ]);
+
+  useEffect(() => {
+    const track = tracks[currentIndex];
+    setCurrentTrack(track);
+  }, [currentIndex, setCurrentTrack, tracks]);
 
   useEffect(() => {
     return () => {
       audioRef.current.pause();
       clearInterval(intervalRef.current);
-    }
+    };
   }, []);
 
-  const handleNextSong = () => {
-    if (currentIndex < tracks.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else setCurrentIndex(currentIndex - 1);
-  };
-
-  const handlePreviousSong = () => {
-    if (currentIndex - 1 < 0) setCurrentIndex(tracks.length -1);
-    else setCurrentIndex(currentIndex - 1);
-  };
-
-  console.log('tracks[currentIndex]:', tracks[currentIndex]); 
 
   return (
     <div className="audioPlayer__container">
@@ -108,13 +121,10 @@ export default function AudioPlayer() {
         </div>
       </div>
       <Controls
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
         handleNextSong={handleNextSong}
         handlePreviousSong={handlePreviousSong}
-        tracks={tracks}
       />
-      <ProgressBar isPlaying={true} percentage={currentPercentage} />
+      <ProgressBar isPlaying={true} /*percentage={currentPercentage}*/ />
     </div>
   );
 }

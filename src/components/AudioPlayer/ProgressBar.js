@@ -2,7 +2,7 @@ import React from 'react'
 import { useStore } from '../../utils/store'
 import './ProgressBar.css'
 
-export default function ProgressBar({percentage}) {
+export default function ProgressBar() {
   const {currentTrack, trackProgress} = useStore();
 
   const calculateProgress = () => {
