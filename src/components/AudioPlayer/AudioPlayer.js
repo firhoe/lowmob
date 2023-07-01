@@ -12,23 +12,20 @@ export default function AudioPlayer() {
     currentIndex,
     setCurrentIndex,
     isPlaying,
-    //setIsPlaying,
     trackProgress,
     setTrackProgress,
   } = useStore();
 
-  const audioRef = useRef(null); 
+  const audioRef = useRef(null);
   const audioSrc = tracks[currentIndex]?.preview_url;
   const isLoaded = useRef(false);
-  const intervalRef = useRef(null); 
+  const intervalRef = useRef(null);
 
   const handleNextSong = useCallback(() => {
     if (isLoaded.current && currentIndex < tracks.length - 1) {
       setCurrentIndex(currentIndex + 1);
-      isLoaded.current = false;
     } else if (isLoaded.current && currentIndex === tracks.length - 1) {
       setCurrentIndex(0);
-      isLoaded.current = false;
     }
   }, [currentIndex, setCurrentIndex, tracks]);
 
@@ -57,24 +54,17 @@ export default function AudioPlayer() {
 
   useEffect(() => {
     if (!audioRef.current) {
-      
       audioRef.current = new Audio();
     }
 
     try {
       audioRef.current.pause();
-      audioRef.current.src = audioSrc; 
+      audioRef.current.src = audioSrc;
 
       setTrackProgress(audioRef.current.currentTime);
 
       audioRef.current.oncanplaythrough = () => {
         isLoaded.current = true;
-        if (isPlaying) {
-          audioRef.current.play().catch((error) => {
-            console.error('Error playing audio:', error);
-          });
-          trackProgressUpdater();
-        }
       };
 
       audioRef.current.onerror = (error) => {
@@ -83,23 +73,15 @@ export default function AudioPlayer() {
     } catch (e) {
       console.error('Error setting up audio:', e);
     }
-  }, [
-    currentIndex,
-    audioSrc,
-    setTrackProgress,
-    isPlaying,
-    trackProgressUpdater,
-  ]);
+  }, [audioSrc, setTrackProgress]);
 
   useEffect(() => {
     if (audioRef.current) {
       try {
-        if (isPlaying) {
-          if (audioRef.current.paused) {
-            audioRef.current.play();
-            trackProgressUpdater();
-          }
-        } else {
+        if (isPlaying && audioRef.current.paused) {
+          audioRef.current.play();
+          trackProgressUpdater();
+        } else if (!isPlaying) {
           clearInterval(intervalRef.current);
           audioRef.current.pause();
         }
