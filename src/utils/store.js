@@ -41,6 +41,12 @@ export const useStore = create((set) => {
     // Función para establecer el estado de las playlists
     setPlaylists: (playlists) => set({playlists: playlists}),
 
+    // Estado para almacenar los artistas del usuario
+    artists: [],
+
+    // Función para establecer el estado de los artistas
+    setArtists: (artists) => set({artists}),
+
     // Estado para almacenar las canciones de una playlist
     tracks: [],
 

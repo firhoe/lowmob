@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
-import './playlist.css';
 import spotifyApi from '../../utils/auth';
+import './playlist.css';
 
 export default function Playlist() {
   const {spotifyToken, playlists, setPlaylists} = useStore();
@@ -10,7 +10,6 @@ export default function Playlist() {
 
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
-    //console.log(spotifyToken);
 
     spotifyApi.getUserPlaylists().then((playlists) => {
       setPlaylists(playlists.items);

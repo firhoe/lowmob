@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Playlist from '../playlist/playlist';
 import Player from '../player/player';
-import Artists from '../favorites/artists';
+import Artists from '../artists/artists';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Login from '../../routes/auth/login';
 import {useStore} from '../../utils/store';
