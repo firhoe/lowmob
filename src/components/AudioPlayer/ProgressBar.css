@@ -12,3 +12,17 @@
   background-color: #ff66f9;
   transition: width 0.3s ease-in-out;
 }
+
+@media (max-width: 1023px) {
+  .progress__container {
+    top:0
+  }
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 620px) {
+  
+}
