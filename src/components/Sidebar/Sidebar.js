@@ -4,7 +4,7 @@ import SidebarButton from './SidebarButton';
 
 import skullShape from '../../images/skull-shape.webp';
 import deformPaper from '../../images/deform-paper.webp';
-import greenIcon from '../../images/green-icon.webp';
+import eggIcon from '../../images/egg.png'
 import ballIcon from '../../images/ball.webp';
 import folderIcon from '../../images/folder.svg';
 
@@ -26,13 +26,24 @@ export default function Sidebar( ) {
       />
       <div className="sidebar__button-group">
         <SidebarButton
+          title="Playlist"
+          to="/"
+          icon={
+            <img
+              src={folderIcon}
+              alt="playlist"
+              className="sidebar__icon sidebar__icon-folder "
+            />
+          }
+        />
+        <SidebarButton
           title="Player"
           to="/player"
           icon={
             <img
-              src={greenIcon}
+              src={ballIcon}
               alt="player"
-              className="sidebar__icon sidebar__icon-green"
+              className="sidebar__icon sidebar__icon-ball"
             />
           }
         />
@@ -41,20 +52,9 @@ export default function Sidebar( ) {
           to="/artists"
           icon={
             <img
-              src={ballIcon}
+              src={eggIcon}
               alt="artists"
-              className="sidebar__icon sidebar__icon-ball"
-            />
-          }
-        />
-        <SidebarButton
-          title="Playlist"
-          to="/"
-          icon={
-            <img
-              src={folderIcon}
-              alt="playlist"
-              className="sidebar__icon sidebar__icon-folder "
+              className="sidebar__icon sidebar__icon-egg"
             />
           }
         />
