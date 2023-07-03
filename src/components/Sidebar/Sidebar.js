@@ -14,12 +14,12 @@ export default function Sidebar( ) {
   return (
     <div className="sidebar">
       <SidebarButton
-        title="About"
-        to=""
+        title="Profile"
+        to="/"
         icon={
           <img
             src={deformPaper}
-            alt="home"
+            alt="profile"
             className="sidebar__icon sidebar__icon-paper"
           />
         }
@@ -27,7 +27,7 @@ export default function Sidebar( ) {
       <div className="sidebar__button-group">
         <SidebarButton
           title="Playlist"
-          to="/"
+          to="/playlist"
           icon={
             <img
               src={folderIcon}

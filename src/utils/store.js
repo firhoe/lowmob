@@ -82,5 +82,23 @@ export const useStore = create((set) => {
 
     // Función para actualizar el estado de isPlayerActive.
     setIsPlayerActive: (isActive) => set({isPlayerActive: isActive}),
+
+    // Estado para almacenar las top 5 canciones del usuario
+    topTracks: [],
+
+    // Función para establecer el estado de las top 5 canciones
+    setTopTracks: (tracks) => set({topTracks: tracks}),
+
+    // Estado para almacenar las canciones recomendadas
+    recommendedTracks: [],
+
+    // Función para establecer el estado de las canciones recomendadas
+    setRecommendedTracks: (tracks) => set({recommendedTracks: tracks}),
+
+    // Estado para almacenar las canciones guardadas del usuario
+    savedTracks: [],
+
+    // Función para establecer el estado de las canciones guardadas
+    setSavedTracks: (tracks) => set({savedTracks: tracks}),
   };
 });

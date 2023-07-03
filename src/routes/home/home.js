@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Profile from '../profile/profile';
 import Playlist from '../playlist/playlist';
 import Player from '../player/player';
 import Artists from '../artists/artists';
@@ -34,7 +35,8 @@ export default function Home() {
       <div className="main">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Playlist />} />
+          <Route path="/" element={<Profile />} />
+          <Route path="/playlist" element={<Playlist />} />
           <Route path="/player" element={<Player />} />
           <Route path="/artists" element={<Artists />} />
         </Routes>

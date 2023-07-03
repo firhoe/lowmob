@@ -32,7 +32,7 @@
 .sidebar__icon {
   background: transparent no-repeat center/contain;
   border: none;
-  cursor: url(../../images/cursor.png), auto;
+  cursor: pointer;
   max-width: 100%;
   height: auto;
 }

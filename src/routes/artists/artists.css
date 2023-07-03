@@ -1,5 +1,10 @@
+.playlist__container-artist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 .playlist__image-artist {
-    border-radius: 70px;
-    width: 105px;
-    height: 105px;
+  border-radius: 70px;
+  width: 105px;
+  height: 105px;
 }

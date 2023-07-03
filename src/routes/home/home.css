@@ -10,7 +10,6 @@
 @media (max-width: 1023px) {
   .main {
     background-size: 80%;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
   }
@@ -19,6 +18,5 @@
 @media (max-width: 620px) {
   .main {
     background-size: 60%;
-    background-attachment: fixed;
   }
 }

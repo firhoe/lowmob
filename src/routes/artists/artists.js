@@ -12,13 +12,12 @@ export default function Artists() {
     spotifyApi.getMyTopArtists({limit: 20}).then((response) => {
       const artist = response.items;
       setArtists(artist);
-      console.log(artist);
     });
   }, [spotifyToken, setArtists]);
 
   return (
     <div className="container flex">
-      <div className="playlist__container">
+      <div className="playlist__container playlist__container-artist">
         {artists.map((artist) => {
           return (
             <div className="playlist__card" key={artist.id}>

@@ -5,9 +5,8 @@ import './login.css';
 export default function Login() {
   return (
     <div className="login">
-      <div className="login__overlap">
-        <figure className="login__memoji" />
-      </div>
+      <div className="login__overlap"></div>
+      {/* <figure className="login__memoji" /> */}
       <div className="login__text-container">
         <a href={loginUrl}>
           <button className="login__button">Link up ✹ Spotify</button>
