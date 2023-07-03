@@ -54,7 +54,7 @@ export default function Widgets() {
     <div className="widgets">
       <div className="widgets__container">
         <div className="widget__card">
-          <h2 className="widget__title">Your Top 5 Tracks</h2>
+          <h2 className="widget__title">Top 5 Tracks 🔥</h2>
           <div className="widget__list">
             {topTracks.map((track) => (
               <div className="widget__list-item" key={track.id}>
@@ -74,27 +74,7 @@ export default function Widgets() {
           </div>
         </div>
         <div className="widget__card">
-          <h2 className="widget__title">We recomend you these!</h2>
-          <div className="widget__list">
-            {recommendedTracks.map((track) => (
-              <div className="widget__list-item" key={track.id}>
-                <img
-                  className="widget__list-image"
-                  src={track.album?.images[0].url}
-                  alt={track.name}
-                />
-                <div className="widget__list-description">
-                  <p className="widget__list-name">{track.name}</p>
-                  <p className="widget__list-artist">
-                    {track.artists[0]?.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="widget__card">
-          <h2 className="widget__title">Your latest Songs Played</h2>
+          <h2 className="widget__title">Latest Tracks 🎧</h2>
           <div className="widget__list">
             {savedTracks.map((track, index) => (
               <div className="widget__list-item" key={index}>
@@ -109,6 +89,26 @@ export default function Widgets() {
                     {track.artists &&
                       track.artists.length > 0 &&
                       track.artists[0]?.name}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="widget__card">
+          <h2 className="widget__title">News for you 🔮</h2>
+          <div className="widget__list">
+            {recommendedTracks.map((track) => (
+              <div className="widget__list-item" key={track.id}>
+                <img
+                  className="widget__list-image"
+                  src={track.album?.images[0].url}
+                  alt={track.name}
+                />
+                <div className="widget__list-description">
+                  <p className="widget__list-name">{track.name}</p>
+                  <p className="widget__list-artist">
+                    {track.artists[0]?.name}
                   </p>
                 </div>
               </div>

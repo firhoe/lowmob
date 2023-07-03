@@ -1,10 +1,9 @@
 .widgets__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-gap: 30px 30px;
+  gap: 30px;
   width: 70vw;
-  max-height: 80vh;
-  margin: 60px auto 0;
+  max-height: 70vh;
   position: relative;
 }
 
@@ -19,33 +18,37 @@
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 4px;
-  width: 80%;
+  width: 100%;
   transition: all 0.3s ease-in-out;
-  cursor: grab;
-  padding: 20px;
+  cursor: pointer;
 }
 
 .widget__card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .widget__title {
-  margin: 0 0 15px;
+  margin: 15px;
 }
 
 .widget__list {
   display: grid;
-  gap: 20px;
+  gap: 15px;
 }
 
 .widget__list-item {
   display: flex;
   align-items: center;
+  margin: 0 15px;
+}
+
+.widget__list-item:last-child {
+  margin-bottom: 15px;
 }
 
 .widget__list-image {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 4px;
 }
 
@@ -61,4 +64,20 @@
 .widget__list-artist {
   margin: 0;
   font-size: 13px;
+}
+
+@media (max-width: 1439px) {
+  .widgets__container {
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 5 1vh;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(137, 137, 137, 0.4) rgba(136, 136, 136, 0.1);
+  }
+}
+
+@media (max-width: 620px) {
+  .widgets__container {
+    max-height: 50vh;
+  }
 }
