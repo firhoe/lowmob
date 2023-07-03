@@ -63,7 +63,7 @@ export default function AudioPlayer() {
 
       setTrackProgress(audioRef.current.currentTime);
 
-      audioRef.current.oncanplaythrough = () => {
+      audioRef.current.onloadedmetadata = () => {
         isLoaded.current = true;
       };
 
