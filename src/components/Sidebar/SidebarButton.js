@@ -5,11 +5,11 @@ import './SidebarButton.css';
 
 export default function SidebarButton(props) {
   const location = useLocation();
-  const {setLogOut} = useStore();
+  const { setShowPopup } = useStore();
 
   const logout = () => {
     if (props.logOut) {
-      setLogOut();
+      setShowPopup();
     }
   };
 

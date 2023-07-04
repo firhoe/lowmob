@@ -38,10 +38,6 @@
   color: #b3b3b3;
 }
 
-/* @media (max-width: 1440px) {
-
-} */
-
 @media (max-width: 1023px) {
   .audioPlayer__container {
     top: 0;

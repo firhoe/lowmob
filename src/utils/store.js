@@ -100,5 +100,11 @@ export const useStore = create((set) => {
 
     // Función para establecer el estado de las canciones guardadas
     setSavedTracks: (tracks) => set({savedTracks: tracks}),
+
+    // Estado para controlar la visibilidad del popup
+    showPopup: false,
+
+    // Funcion para actualizar el estado de showPopup
+    setShowPopup: () => set((state) => ({showPopup: !state.showPopup})),
   };
 });
