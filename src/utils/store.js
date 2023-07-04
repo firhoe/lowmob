@@ -96,10 +96,10 @@ export const useStore = create((set) => {
     setRecommendedTracks: (tracks) => set({recommendedTracks: tracks}),
 
     // Estado para almacenar las canciones guardadas del usuario
-    savedTracks: [],
+    playedTracks: [],
 
     // Función para establecer el estado de las canciones guardadas
-    setSavedTracks: (tracks) => set({savedTracks: tracks}),
+    setPlayedTracks: (tracks) => set({playedTracks: tracks}),
 
     // Estado para controlar la visibilidad del popup
     showPopup: false,

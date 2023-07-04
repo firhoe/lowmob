@@ -9,8 +9,8 @@ export default function Widgets() {
     setTopTracks,
     recommendedTracks,
     setRecommendedTracks,
-    savedTracks,
-    setSavedTracks,
+    playedTracks,
+    setPlayedTracks,
   } = useStore();
 
   useEffect(() => {
@@ -42,13 +42,15 @@ export default function Widgets() {
       .getMyRecentlyPlayedTracks({limit: 5})
       .then((response) => {
         const recentlyPlayedTracks = response.items;
-        const savedTracks = recentlyPlayedTracks.map((item) => item.track);
-        setSavedTracks(savedTracks);
+        const playedTracks = recentlyPlayedTracks.map((item) => item.track);
+        setPlayedTracks(playedTracks);
       })
       .catch((error) => {
         console.error('Error getting recently played tracks:', error);
       });
-  }, [recommendedTracks, setTopTracks, setRecommendedTracks, setSavedTracks]);
+  }, [recommendedTracks, setTopTracks, setRecommendedTracks, setPlayedTracks]);
+
+
 
   return (
     <div className="widgets">
@@ -76,7 +78,7 @@ export default function Widgets() {
         <div className="widget__card">
           <h2 className="widget__title">Latest Tracks 🎧</h2>
           <div className="widget__list">
-            {savedTracks.map((track, index) => (
+            {playedTracks.map((track, index) => (
               <div className="widget__list-item" key={index}>
                 <img
                   className="widget__list-image"

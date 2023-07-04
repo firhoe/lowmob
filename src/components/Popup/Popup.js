@@ -29,13 +29,18 @@ export default function Popup({handleLogout, handleStay}) {
   return (
     <div className="popup">
       <div className="popup__container" ref={popupRef}>
+        <div className='popup__image' alt='good bye'></div>
         <p className="popup__title">You leaving us?</p>
         <div className="popup__buttons">
-          <button className="popup__button" onClick={handleLogout}>
-            Yep, bye
+          <button
+            className="popup__button popup__button-pan"
+            onClick={handleLogout}>
+            <span>Yep, bye</span>
           </button>
-          <button className="popup__button" onClick={handleStay}>
-            Nope
+          <button
+            className="popup__button popup__button-pan"
+            onClick={handleStay}>
+            <span>Nope</span>
           </button>
         </div>
       </div>
