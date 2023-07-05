@@ -24,6 +24,7 @@ export default function Player() {
 
   useEffect(() => {
     const fetchData = async () => {
+
       if (spotifyToken) {
         const storedPlaylistId = localStorage.getItem('selectedPlaylistId');
         let playlistId = storedPlaylistId;

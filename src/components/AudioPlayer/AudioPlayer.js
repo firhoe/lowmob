@@ -58,18 +58,20 @@ export default function AudioPlayer() {
     }
 
     try {
-      audioRef.current.pause();
-      audioRef.current.src = audioSrc;
+      if (audioSrc) {
+        audioRef.current.pause();
+        audioRef.current.src = audioSrc;
 
-      setTrackProgress(audioRef.current.currentTime);
+        setTrackProgress(audioRef.current.currentTime);
 
-      audioRef.current.onloadedmetadata = () => {
-        isLoaded.current = true;
-      };
+        audioRef.current.onloadedmetadata = () => {
+          isLoaded.current = true;
+        };
 
-      audioRef.current.onerror = (error) => {
-        console.error('Error loading audio:', error);
-      };
+        audioRef.current.onerror = (error) => {
+          console.error('Error loading audio:', error);
+        };
+      }
     } catch (e) {
       console.error('Error setting up audio:', e);
     }
