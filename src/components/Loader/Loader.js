@@ -11,13 +11,12 @@ export default function Loader() {
       {isLoading && (
         <motion.div
           className="loader"
-          initial={{x: 0, opacity: 1}}
-          animate={{x: 0, opacity: 0}}
-          transition={{ease: 'linear', duration: 1, x: {duration: 1}}}>
-          <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-          </div>
+          animate={{x: 0,}}
+          transition={{
+            ease: 'easeOut',
+            duration: 2,
+          }}>
+          <div className="loader__memoji"></div>
         </motion.div>
       )}
     </>
