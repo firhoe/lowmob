@@ -11,7 +11,7 @@ export default function Loader() {
       {isLoading && (
         <motion.div
           className="loader"
-          animate={{x: 0,}}
+          animate={{x: 0}}
           transition={{
             ease: 'easeOut',
             duration: 2,

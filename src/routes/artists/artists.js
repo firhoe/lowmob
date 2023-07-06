@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useStore } from '../../utils/store'
+import { motion } from 'framer-motion';
 import spotifyApi from '../../utils/auth';
 import './artists.css'
 
@@ -18,9 +19,14 @@ export default function Artists() {
   return (
     <div className="container flex">
       <div className="playlist__container playlist__container-artist">
-        {artists.map((artist) => {
+        {artists.map((artist, i) => {
           return (
-            <div className="playlist__card" key={artist.id}>
+            <motion.div
+              className="playlist__card"
+              key={artist.id}
+              initial={{opacity: 0, translateX: -50, translateY: -50}}
+              animate={{opacity: 1, translateX: 0, translateY: 0}}
+              transition={{duration: 0.3, delay: i * 0.1}}>
               <img
                 src={artist?.images[0]?.url}
                 className="playlist__image playlist__image-artist"
@@ -30,7 +36,7 @@ export default function Artists() {
               <p className="playlist__subtitle">
                 Popularity: {artist.popularity}
               </p>
-            </div>
+            </motion.div>
           );
         })}
       </div>
