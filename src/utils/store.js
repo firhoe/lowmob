@@ -106,5 +106,11 @@ export const useStore = create((set) => {
 
     // Funcion para actualizar el estado de showPopup
     setShowPopup: () => set((state) => ({showPopup: !state.showPopup})),
+
+    // Estado para controlar si la carga esta en proceso o no
+    isLoading: false,
+
+    // Funcion para actualizar el estado de isLoading
+    setIsLoading: (isLoading) => set({isLoading}),
   };
 });

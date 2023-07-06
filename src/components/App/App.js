@@ -1,10 +1,16 @@
 import React from 'react'
+import LoaderContext from '../../context/LoaderContext'
+import {useStore} from '../../utils/store';
 import Home from '../../routes/home/home'
+import Loader from '../Loader/Loader'
 
 export default function App() {
+  const setIsLoading = useStore((state) => state.setIsLoading);
+
   return (
-    <div>
+    <LoaderContext.Provider value={{isLoading: setIsLoading}}>
       <Home />
-    </div>
-  )
+      <Loader />
+    </LoaderContext.Provider>
+  );
 }

@@ -11,6 +11,7 @@ export default function Player() {
   const {spotifyToken, setSpotifyToken, setTracks, setCurrentTrack, playlists} =
     useStore();
   const location = useLocation();
+  const setIsLoading = useStore((state) => state.setIsLoading);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('spotifyToken');
@@ -46,6 +47,13 @@ export default function Player() {
 
     fetchData();
   }, [spotifyToken, location.state, playlists, setTracks, setCurrentTrack]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, [setIsLoading]);
 
 
   return (
