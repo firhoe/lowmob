@@ -1,5 +1,5 @@
 .user__container {
-  background-color: #000;
+  background-color: #181818;
   border-radius: 6px;
   width: 350px;
   height: 150px;
@@ -9,6 +9,7 @@
   margin-bottom: 20px;
   filter: drop-shadow(0px 7px 20px rgba(114, 114, 114, 0.25));
   transition: all 0.3s ease-in-out;
+  cursor: url(../../images/green-cursor.png), auto;
 }
 
 .user__container:hover {
@@ -44,8 +45,8 @@
 
 .user__animation {
   background: url(../../images/moving-dot-black.svg) no-repeat center/cover;
-  width: 107px;
-  height: 110px;
+  width: 108px;
+  height: 111px;
   animation: rotation 14s infinite;
   margin-right: 20px;
   filter: invert(3);

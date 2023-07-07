@@ -8,11 +8,11 @@
   overflow: hidden;
   background: url(../../images/header-text.svg) no-repeat right 50% top 5%/30%
     auto;
+  cursor: url(../../images/black-cursor.png), default;
 }
 
 .login__overlap {
-  background: url(../../images/liquid-banner.png)
-    no-repeat center/80% auto;
+  background: url(../../images/liquid-banner.png) no-repeat center/80% auto;
   width: 100%;
   height: calc(60% - 100px);
   position: absolute;
@@ -29,11 +29,11 @@
   z-index: 1;
   animation: zoomIn 2s infinite;
   filter: drop-shadow(0px 20px 50px rgba(0, 0, 0, 0.25));
-} 
+}
 
 .login__button {
   background-color: transparent;
-  color: #000000;
+  color: #181818;
   background: center/cover no-repeat;
   width: 200px;
   height: 50px;
@@ -47,7 +47,7 @@
 }
 
 .login__button:hover {
-  background-color: #000000;
+  background-color: #181818;
   color: #ffffff;
   transform: translateY(-10px);
   transition: all 0.4s ease;
@@ -71,7 +71,6 @@
   color: black;
   text-decoration: underline;
   margin-top: 10px;
-  cursor: pointer;
   margin: 0;
 }
 

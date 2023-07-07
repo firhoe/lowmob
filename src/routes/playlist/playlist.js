@@ -32,8 +32,7 @@ export default function Playlist() {
               onClick={() => handlePlayPlaylist(playlist.id)}
               initial={{opacity: 0, translateX: -50, translateY: -50}}
               animate={{opacity: 1, translateX: 0, translateY: 0}}
-              transition={{duration: 0.3, delay: i * 0.1}}
-              >
+              transition={{duration: 0.3, delay: i * 0.1}}>
               <img
                 src={playlist?.images[0]?.url}
                 className="playlist__image"

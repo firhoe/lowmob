@@ -3,6 +3,7 @@
   height: 100%;
   background: url(../images/header-text.svg) no-repeat right 50% top 5%/400px auto;
   overflow: auto;
+  cursor: url(../images/black-cursor.png), default;
 }
 
 .flex {

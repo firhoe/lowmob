@@ -24,11 +24,6 @@
   justify-content: space-between;
   width: 100%;
   transition: all 0.3s ease;
-  cursor: grab;
-}
-
-.playlist__card:hover {
-  transform: scale(1.02);
 }
 
 .playlist__card:hover .playlist__button {
@@ -63,7 +58,7 @@
 
 .playlist__button:hover {
   transform: scale(1.1);
-  cursor: crosshair;
+  cursor: url(../../images/green-cursor.png), auto;
 }
 
 .playlist__button:hover:before {

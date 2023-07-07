@@ -8,21 +8,8 @@
 .controls__button {
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: url(../../images/green-cursor.png), auto;
 }
-
-
-/* @media (max-width: 1440px) {
-
-}
-
-@media (max-width: 1023px) {
-
-}
-
-@media (max-width: 768px) {
-
-} */
 
 @media (max-width: 620px) {
   .controls__container {

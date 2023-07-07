@@ -19,6 +19,7 @@
   backdrop-filter: blur(5px);
   border-radius: 10px;
   z-index: 2;
+  cursor: url(../../images/black-cursor.png), auto;
 }
 
 .sidebar__button-group {
@@ -32,7 +33,6 @@
 .sidebar__icon {
   background: transparent no-repeat center/contain;
   border: none;
-  cursor: pointer;
   max-width: 100%;
   height: auto;
 }

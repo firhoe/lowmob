@@ -2,13 +2,13 @@ a {
   text-decoration: none;
 }
 
-/*revisa este transition */
 .sidebar__button {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   transition: all 0.4s ease;
+  cursor: url(../../images/black-cursor.png), auto;
 }
 
 .sidebar__title {
