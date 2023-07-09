@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react'
-import { useStore } from '../../utils/store'
-import { motion } from 'framer-motion';
-import spotifyApi from '../../utils/auth';
-import './artists.css'
+import React, {useEffect} from 'react';
+import {useStore} from '../../utils/store';
+import {motion} from 'framer-motion';
+import spotifyApi from '../../utils/authorization';
+import './Artists.css';
 
 export default function Artists() {
-  const {spotifyToken, artists,setArtists} = useStore();
+  const {spotifyToken, artists, setArtists} = useStore();
 
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
 
-    spotifyApi.getMyTopArtists({limit: 20}).then((response) => {
-      const artist = response.items;
-      setArtists(artist);
-    });
+    spotifyApi
+      .getMyTopArtists({limit: 20})
+      .then((response) => {
+        const artist = response.items;
+        setArtists(artist);
+      })
+      .catch((error) => {
+        console.error('Error getting top artist:', error);
+      });
   }, [spotifyToken, setArtists]);
 
   return (
@@ -43,4 +48,3 @@ export default function Artists() {
     </div>
   );
 }
-

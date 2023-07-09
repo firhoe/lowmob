@@ -1,6 +1,6 @@
 import React from 'react';
-import {loginUrl} from '../../utils/auth';
-import './login.css';
+import {loginUrl} from '../../utils/authorization';
+import './Login.css';
 
 export default function Login() {
   return (

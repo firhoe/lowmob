@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
-import { motion } from 'framer-motion'
-import spotifyApi from '../../utils/auth';
-import './playlist.css';
+import {motion} from 'framer-motion';
+import spotifyApi from '../../utils/authorization';
+import './Playlist.css';
 
 export default function Playlist() {
   const {spotifyToken, playlists, setPlaylists} = useStore();
@@ -12,10 +12,15 @@ export default function Playlist() {
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
 
-    spotifyApi.getUserPlaylists().then((playlists) => {
-      setPlaylists(playlists.items);
-    });
-  }, [spotifyToken, setPlaylists]);
+    spotifyApi
+      .getUserPlaylists()
+      .then((playlists) => {
+        setPlaylists(playlists.items);
+      })
+      .catch((error) => {
+        console.error('Error getting user playlists:', error);
+      });
+  }, [spotifyToken, setPlaylists, navigate]);
 
   const handlePlayPlaylist = (id) => {
     navigate('/player', {state: {id: id}});

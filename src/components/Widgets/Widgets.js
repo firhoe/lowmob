@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useStore} from '../../utils/store';
-import spotifyApi from '../../utils/auth';
+import spotifyApi from '../../utils/authorization';
 import './Widgets.css';
 
 export default function Widgets() {
@@ -49,8 +49,6 @@ export default function Widgets() {
         console.error('Error getting recently played tracks:', error);
       });
   }, [recommendedTracks, setTopTracks, setRecommendedTracks, setPlayedTracks]);
-
-
 
   return (
     <div className="widgets">

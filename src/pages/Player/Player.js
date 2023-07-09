@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import {useStore} from '../../utils/store';
-import spotifyApi from '../../utils/auth';
+import spotifyApi from '../../utils/authorization';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
 import QueueTracks from '../../components/QueueTracks/QueueTracks';
 import AudioPlayer from '../../components/AudioPlayer/AudioPlayer';
-import './player.css';
+import './Player.css';
 
 export default function Player() {
   const {spotifyToken, setSpotifyToken, setTracks, setCurrentTrack, playlists} =
@@ -16,16 +16,14 @@ export default function Player() {
   useEffect(() => {
     const storedToken = localStorage.getItem('spotifyToken');
 
-    if(storedToken) {
+    if (storedToken) {
       setSpotifyToken(storedToken);
       spotifyApi.setAccessToken(storedToken);
     }
-  }, [setSpotifyToken])
-
+  }, [setSpotifyToken]);
 
   useEffect(() => {
     const fetchData = async () => {
-
       if (spotifyToken) {
         const storedPlaylistId = localStorage.getItem('selectedPlaylistId');
         let playlistId = storedPlaylistId;
@@ -54,7 +52,6 @@ export default function Player() {
       setIsLoading(false);
     }, 1500);
   }, [setIsLoading]);
-
 
   return (
     <div className="container flex">

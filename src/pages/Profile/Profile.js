@@ -3,7 +3,7 @@ import {useStore} from '../../utils/store';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
 import Widgets from '../../components/Widgets/Widgets';
 import MemojiCard from '../../components/MemojiCard/MemojiCard';
-import './profile.css'
+import './Profile.css'
 
 
 export default function Profile() {

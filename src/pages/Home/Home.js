@@ -1,15 +1,14 @@
 import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Profile from '../profile/profile';
-import Playlist from '../playlist/playlist';
-import Player from '../player/player';
-import Artists from '../artists/artists';
+import Profile from '../Profile/Profile';
+import Playlist from '../Playlist/Playlist';
+import Player from '../Player/Player';
+import Artists from '../Artists/Artists';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Login from '../../routes/auth/login';
+import Login from '../Auth/Login';
 import {useStore} from '../../utils/store';
-import { spotifyApi, getTokenFromUrl} from '../../utils/auth';
-import './home.css';
-
+import {spotifyApi, getTokenFromUrl} from '../../utils/authorization';
+import './Home.css';
 
 export default function Home() {
   const {setSpotifyToken, loggedIn, setLoggedIn} = useStore();
@@ -21,9 +20,14 @@ export default function Home() {
     if (token) {
       setSpotifyToken(token);
       spotifyApi.setAccessToken(token);
-      spotifyApi.getMe().then((user) => {
-        console.log(user);
-      });
+      spotifyApi
+        .getMe()
+        .then((user) => {
+          console.log(user);
+        })
+        .catch((error) => {
+          console.error('Error occurred while fetching user data:', error);
+        });
       setLoggedIn(true);
     }
   }, [setSpotifyToken, setLoggedIn]);
@@ -42,5 +46,5 @@ export default function Home() {
         </Routes>
       </div>
     </Router>
-  ); 
+  );
 }
