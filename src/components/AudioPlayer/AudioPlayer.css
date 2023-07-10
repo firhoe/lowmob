@@ -59,7 +59,7 @@
 
 @media (max-width: 620px) {
   .audioPlayer__songInfo {
-    width: 60%;
+    width: 50%;
   }
 
   .audioPlayer__song {
