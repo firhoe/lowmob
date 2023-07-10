@@ -1,6 +1,6 @@
 ![Logo](./src/images/header-text.svg)
 
-# Lowmob®
+# Lowmop®
 
 Lowmob® is a small front-end experiment developed with Create React App, in which we use the Spotify API to create a slightly interactive interface where you can visualize your playlists, favorite artists, top tracks, and much more... oh, and it also has a music playback bar. It really has many little interactions that I would love for you to discover!
 
