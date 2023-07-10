@@ -1,14 +1,12 @@
 ![Logo](./src/images/header-text.svg)
 
-# Lowmop®
-
 This is a small front-end experiment developed with Create React App, in which we use the Spotify API to create a slightly interactive interface where you can visualize your playlists, favorite artists, top tracks, and much more... oh, and it also has a music playback bar. It really has many little interactions that I would love for you to discover!
 
 ![lowmob®](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXp4b3d6ZmlieGxqNzBtZW00YWFnc2s1bnl5cThlOTRnYWJkZWQ3ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jrBXo9YmlJ6K1ROLyD/giphy.gif)
 
 ## Take a look 👁‍🗨
 
-- [Lowmop®](https://lowmob.vercel.app/)
+- check out the website - [Lowmop®](https://lowmob.vercel.app/)
 
 ## Authentication
 
