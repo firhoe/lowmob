@@ -8,7 +8,7 @@ This is a small front-end experiment developed with Create React App, in which w
 
 ## Take a look 👁‍🗨
 
-- [Lowmob®](https://lowmob.vercel.app/)
+- [Lowmop®](https://lowmob.vercel.app/)
 
 ## Authentication
 
