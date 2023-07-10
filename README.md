@@ -6,7 +6,7 @@ This is a small front-end experiment developed with Create React App, in which w
 
 ## Take a look 👁‍🗨
 
-- check out the website - [Lowmop®](https://lowmob.vercel.app/)
+- cheyk out the website - [Lowmop®](https://lowmob.vercel.app/)
 
 ## Authentication
 
@@ -85,6 +85,6 @@ Before running the application, make sure to configure the following variables i
 
 ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)
 
-![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white) 
 
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
