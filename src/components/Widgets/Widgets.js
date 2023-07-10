@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
 import spotifyApi from '../../utils/authorization';
 import './Widgets.css';
@@ -12,6 +13,8 @@ export default function Widgets() {
     playedTracks,
     setPlayedTracks,
   } = useStore();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     if (recommendedTracks.length === 0) {
@@ -31,10 +34,12 @@ export default function Widgets() {
             })
             .catch((error) => {
               console.error('Error getting recommended tracks:', error);
+              navigate('/*', {state: {error: error}});
             });
         })
         .catch((error) => {
           console.error('Error getting top tracks:', error);
+          navigate('/*', {state: {error: error}});
         });
     }
 
@@ -47,8 +52,9 @@ export default function Widgets() {
       })
       .catch((error) => {
         console.error('Error getting recently played tracks:', error);
+        navigate('/*', {state: {error: error}});
       });
-  }, [recommendedTracks, setTopTracks, setRecommendedTracks, setPlayedTracks]);
+  }, [recommendedTracks, setTopTracks, setRecommendedTracks, setPlayedTracks, navigate]);
 
   return (
     <div className="widgets">

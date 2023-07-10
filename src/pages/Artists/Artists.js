@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
 import {motion} from 'framer-motion';
 import spotifyApi from '../../utils/authorization';
@@ -6,6 +7,7 @@ import './Artists.css';
 
 export default function Artists() {
   const {spotifyToken, artists, setArtists} = useStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
@@ -18,8 +20,9 @@ export default function Artists() {
       })
       .catch((error) => {
         console.error('Error getting top artist:', error);
+        navigate('/*', {state: {error: error}});
       });
-  }, [spotifyToken, setArtists]);
+  }, [spotifyToken, setArtists, navigate]);
 
   return (
     <div className="container flex">

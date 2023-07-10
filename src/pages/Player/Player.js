@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
 import spotifyApi from '../../utils/authorization';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
@@ -11,6 +12,7 @@ export default function Player() {
   const {spotifyToken, setSpotifyToken, setTracks, setCurrentTrack, playlists} =
     useStore();
   const location = useLocation();
+  const navigate = useNavigate();
   const setIsLoading = useStore((state) => state.setIsLoading);
 
   useEffect(() => {
@@ -24,27 +26,32 @@ export default function Player() {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (spotifyToken) {
-        const storedPlaylistId = localStorage.getItem('selectedPlaylistId');
-        let playlistId = storedPlaylistId;
+      try {
+        if (spotifyToken) {
+          const storedPlaylistId = localStorage.getItem('selectedPlaylistId');
+          let playlistId = storedPlaylistId;
 
-        if (location.state && location.state.id) {
-          playlistId = location.state.id;
-          localStorage.setItem('selectedPlaylistId', playlistId);
-        } else if (!storedPlaylistId && playlists.length > 0) {
-          playlistId = playlists[0].id;
-          localStorage.setItem('selectedPlaylistId', playlistId);
+          if (location.state && location.state.id) {
+            playlistId = location.state.id;
+            localStorage.setItem('selectedPlaylistId', playlistId);
+          } else if (!storedPlaylistId && playlists.length > 0) {
+            playlistId = playlists[0].id;
+            localStorage.setItem('selectedPlaylistId', playlistId);
+          }
+
+          const response = await spotifyApi.getPlaylistTracks(playlistId);
+          const tracks = response.items.map((item) => item.track);
+          setTracks(tracks);
+          setCurrentTrack(tracks[0]);
         }
-
-        const response = await spotifyApi.getPlaylistTracks(playlistId);
-        const tracks = response.items.map((item) => item.track);
-        setTracks(tracks);
-        setCurrentTrack(tracks[0]);
-      }
+      } catch (error) {
+        console.error('Error fetching playlist tracks:', error);
+        navigate('/*', {state: {error: error}});
+      }  
     };
 
     fetchData();
-  }, [spotifyToken, location.state, playlists, setTracks, setCurrentTrack]);
+  }, [spotifyToken, location.state, playlists, setTracks, setCurrentTrack, navigate]);
 
   useEffect(() => {
     setIsLoading(true);

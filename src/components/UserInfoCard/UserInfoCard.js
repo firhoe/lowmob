@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {useStore} from '../../utils/store';
 import spotifyApi from '../../utils/authorization';
 import './UserInfoCard.css';
 
 export default function UserInfoCard() {
   const {setUser, user, spotifyToken} = useStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
     spotifyApi.setAccessToken(spotifyToken);
@@ -22,9 +24,10 @@ export default function UserInfoCard() {
         })
         .catch((error) => {
           console.error('Error getting user:', error);
+          navigate('/*', {state: {error: error}});
         });
     }
-  }, [spotifyToken, setUser]);
+  }, [spotifyToken, setUser, navigate]);
 
   return (
     <div className="user__container">

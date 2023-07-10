@@ -5,6 +5,7 @@ import Playlist from '../Playlist/Playlist';
 import Player from '../Player/Player';
 import Artists from '../Artists/Artists';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Error from '../Error/Error';
 import Login from '../Auth/Login';
 import {useStore} from '../../utils/store';
 import {spotifyApi, getTokenFromUrl} from '../../utils/authorization';
@@ -43,6 +44,7 @@ export default function Home() {
           <Route path="/playlist" element={<Playlist />} />
           <Route path="/player" element={<Player />} />
           <Route path="/artists" element={<Artists />} />
+          <Route path='/*' element={<Error/>}/>
         </Routes>
       </div>
     </Router>

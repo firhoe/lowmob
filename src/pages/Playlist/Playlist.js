@@ -19,6 +19,7 @@ export default function Playlist() {
       })
       .catch((error) => {
         console.error('Error getting user playlists:', error);
+        navigate('/*', {state: {error: error}});
       });
   }, [spotifyToken, setPlaylists, navigate]);
 
