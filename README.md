@@ -6,6 +6,23 @@ Lowmob® is a small front-end experiment developed with Create React App, in whi
 
 ![lowmob®](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXp4b3d6ZmlieGxqNzBtZW00YWFnc2s1bnl5cThlOTRnYWJkZWQ3ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jrBXo9YmlJ6K1ROLyD/giphy.gif)
 
+## Take a look 👁‍🗨
+
+- [Lowmob®](https://lowmob.vercel.app/)
+
+## Authentication
+
+The application uses the Spotify authentication flow to obtain an access token. To log in, a "Link up ✹ Spotify" button will be displayed on the home page. Upon clicking the button, you will be redirected to the Spotify website to log in and authorize the application. Once authorized, you will be redirected back to the application with a valid access token.
+
+In case you don't have access, please use this account that will allow you to interact with the web interface:
+```sh
+Spotify account: new.user.test.spotify@gmail.com
+```
+```sh
+Password: n3w-t3st-spotify
+```
+
+
 ## Installation
 
 This project requires node and npm installed globally.
@@ -54,10 +71,6 @@ Before running the application, make sure to configure the following variables i
 - **localStorage** : A JavaScript API used to store and retrieve data in the user's browser.
 - **Spotify Authentication API** : Used to authenticate and authorize users through their Spotify account and obtain an access token for making requests to the Spotify API.
 
-## Authentication
-
-The application uses the Spotify authentication flow to obtain an access token. To log in, a "Link up ✹ Spotify" button will be displayed on the home page. Upon clicking the button, you will be redirected to the Spotify website to log in and authorize the application. Once authorized, you will be redirected back to the application with a valid access token.
-
 ## Functionalities
 
 `User Profile` - Displays user information such as their name, followers, and profile picture.
@@ -70,6 +83,10 @@ The application uses the Spotify authentication flow to obtain an access token. 
 
 `Widgets` - Displays widgets with top songs, recently played songs, and recommended songs.
 
-## Take a look 👁‍🗨
+## Badges
 
-- [Lowmob®](https://lowmob.vercel.app/)
+![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)
+
+![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
+
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
