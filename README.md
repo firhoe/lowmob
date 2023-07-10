@@ -70,6 +70,6 @@ The application uses the Spotify authentication flow to obtain an access token. 
 
 `Widgets` - Displays widgets with top songs, recently played songs, and recommended songs.
 
-## 👁‍🗨
+## Take a look 👁‍🗨
 
-- [Lowmob®]()
+- [Lowmob®](https://lowmob.vercel.app/)
