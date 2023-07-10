@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+![Logo](./src/images/header-text.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lowmob®
 
-## Available Scripts
+Lowmob® is a small front-end experiment developed with Create React App, in which we use the Spotify API to create a slightly interactive interface where you can visualize your playlists, favorite artists, top tracks, and much more... oh, and it also has a music playback bar. It really has many little interactions that I would love for you to discover!
 
-In the project directory, you can run:
+![lowmob®](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXp4b3d6ZmlieGxqNzBtZW00YWFnc2s1bnl5cThlOTRnYWJkZWQ3ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jrBXo9YmlJ6K1ROLyD/giphy.gif)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project requires node and npm installed globally.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone the repository to a directory of your choosing
 
-### `npm test`
+```sh
+$ git clone https://github.com/firhoe/lowmob.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navigate into the file and install the necessary packages
 
-### `npm run build`
+```sh
+$ npm install 
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To start up the app locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+$ npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Configuration
 
-### `npm run eject`
+Before running the application, make sure to configure the following variables in the config.js file:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`AUTH_ENDPOINT` - Spotify authentication endpoint.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`CLIENT_ID` - Spotify application client ID.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`REDIRECT_URI` - Redirect URI after authentication.
 
-## Learn More
+`SCOPES` - Spotify API access scopes required by the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech / Framework Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **React** : A JavaScript framework used to build interactive and reusable user interfaces.
+- **JavaScript** : The main programming language used to develop the logic and functionality of the project.
+- **Zustand** : A lightweight and fast state management library for React used to store and manage the global state of the application.
+- **Spotify Web API** : An API provided by Spotify that allows interaction with the Spotify music platform, such as retrieving user information, playlists, and songs.
+- **Framer Motion** : A library used to add smooth animations and transitions to UI elements.
+- **React Router** : A library used to manage navigation and routes in a React application.
+- **HTML** : The markup language used to structure and present web content.
+- **CSS** : The language used to style and design the visual appearance of the project.
+- **localStorage** : A JavaScript API used to store and retrieve data in the user's browser.
+- **Spotify Authentication API** : Used to authenticate and authorize users through their Spotify account and obtain an access token for making requests to the Spotify API.
 
-### Code Splitting
+## Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application uses the Spotify authentication flow to obtain an access token. To log in, a "Link up ✹ Spotify" button will be displayed on the home page. Upon clicking the button, you will be redirected to the Spotify website to log in and authorize the application. Once authorized, you will be redirected back to the application with a valid access token.
 
-### Analyzing the Bundle Size
+## Functionalities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`User Profile` - Displays user information such as their name, followers, and profile picture.
 
-### Making a Progressive Web App
+`Playlists` - Displays the user's playlists and allows playback of a selected playlist.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+`Music Player` - Allows playing and controlling music, including play, pause, next song, and previous song.
 
-### Advanced Configuration
+`Artists` - Displays the user's top artists.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`Widgets` - Displays widgets with top songs, recently played songs, and recommended songs.
